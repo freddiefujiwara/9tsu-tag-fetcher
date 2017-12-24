@@ -6,7 +6,7 @@
 [![dependencies Status](https://david-dm.org/freddiefujiwara/9tsu-tag-fetcher/status.svg)](https://david-dm.org/freddiefujiwara/9tsu-tag-fetcher)
 
 # 9tsu-tag-fetcher
-Command line client for google home
+Command line client for 9tsu tag video mp3 list up
 
 ## Requirements
 
@@ -20,7 +20,7 @@ npm i -g 9tsu-tag-fetcher
 
 ## Usage
 ```bash                                                                                     
-  Usage: 9tsu-tag-fetcher <host> <url>                                                                                    
+  Usage: 9tsu-tag-fetcher <tag>                                                                                    
                                                                                                                          
                                                                                                                                
                                                                                                                                
@@ -32,7 +32,7 @@ npm i -g 9tsu-tag-fetcher
 
 ## Example
 ```bash
-9tsu-tag-fetcher 192.168.1.101 https://goo.gl/ATTmxX
+9tsu-tag-fetcher new
 ```
 
 ## FAQ
