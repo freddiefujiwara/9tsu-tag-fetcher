@@ -1,0 +1,68 @@
+{
+    "name": "9tsu-tag-fetcher",
+    "version": "0.0.2",
+    "description": "Command line client for chromeless",
+    "scripts": {
+        "clean": "rimraf lib",
+        "test": "cross-env BABEL_ENV=commonjs mocha --timeout 200000 --compilers js:babel-register --require babel-polyfill --recursive",
+        "test:watch": "npm test -- --watch",
+        "lint": "eslint -c google src test",
+        "build": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+        "codecov": "mkdir -p .nyc_output && nyc report --reporter=text-lcov > coverage.lcov && codecov -t 648b30ed-184e-4c13-af65-1bd6e7ac6b42",
+        "coverage": "mkdir -p .nyc_output && nyc --reporter=lcov --reporter=text npm run test",
+        "prepublishOnly": "npm i && npm run clean && npm run lint && npm run coverage && npm run codecov && npm run build",
+        "requirements-check": "node check-version.js",
+        "postinstall": "npm run requirements-check"
+    },
+    "bin": {
+        "9tsu-tag-fetcher": "index.js"
+    },
+    "main": "lib/9tsu-tag-fetcher.js",
+    "files": [
+        "lib",
+        "index.js",
+        "check-version.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/freddiefujiwara/9tsu-tag-fetcher.git"
+    },
+    "keywords": [
+        "cli",
+        "speaker",
+        "audio",
+        "google-home"
+    ],
+    "author": "Fumikazu Fujiwara <npm@ze.gs> (http://freddiefujiwara.com)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/freddiefujiwara/9tsu-tag-fetcher/issues"
+    },
+    "homepage": "https://github.com/freddiefujiwara/9tsu-tag-fetcher#readme",
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.25.0",
+        "babel-eslint": "^7.2.3",
+        "babel-plugin-add-module-exports": "^0.2.1",
+        "babel-preset-es2015": "^6.24.1",
+        "babel-register": "^6.24.1",
+        "chai": "^4.0.2",
+        "codecov": "^2.2.0",
+        "cross-env": "^5.0.1",
+        "eslint": "^4.1.1",
+        "eslint-config-google": "^0.9.1",
+        "mocha": "^3.4.2",
+        "nyc": "^11.1.0",
+        "rimraf": "^2.6.1"
+    },
+    "dependencies": {
+        "castv2-client": "^1.2.0",
+        "commander": "^2.11.0",
+        "jsdom": "^11.5.1",
+        "semver": "^5.4.1",
+        "sync-request": "^4.1.0"
+    },
+    "engines": {
+        "node": ">=7.6"
+    }
+}
